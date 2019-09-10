@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "Gudfood Randomizer",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": ["http://orders.gudfood.com.ua/order"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
