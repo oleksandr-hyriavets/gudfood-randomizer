@@ -1,5 +1,3 @@
-const USUAL_MENU = ["salati", "sendvichi", "osnovna-strava", "supi"];
-
 function selectItem(kind) {
   const buyBtns = document.querySelectorAll(`#${kind} .buy`);
 
@@ -26,8 +24,4 @@ function makeAnOrder(kinds) {
   });
 }
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.message === "clicked_browser_action") {
-    makeAnOrder(USUAL_MENU);
-  }
-});
+export { makeAnOrder };
