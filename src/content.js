@@ -1,5 +1,3 @@
-const USUAL_MENU = ["salati", "sendvichi", "osnovna-strava", "supi"];
-
 function selectItem(kind) {
   const buyBtns = document.querySelectorAll(`#${kind} .buy`);
 
@@ -15,19 +13,19 @@ function goToTab(hash) {
   const tabWithProperHash = [...tabs].find(tab => tab.hash === hash);
 
   if (tabWithProperHash) {
-    tabWithProperHash.click();
+      tabWithProperHash.click();
   }
 }
 
 function makeAnOrder(kinds) {
   kinds.forEach(kind => {
-    goToTab(`#${kind}`);
-    selectItem(kind);
+      goToTab(`#${kind}`);
+      selectItem(kind);
   });
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.message === "clicked_browser_action") {
-    makeAnOrder(USUAL_MENU);
+  if (request.action === "randomize") {
+    makeAnOrder(request.payload.dishes);
   }
 });

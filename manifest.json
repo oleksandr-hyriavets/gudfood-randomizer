@@ -5,13 +5,21 @@
   "content_scripts": [
     {
       "matches": ["http://orders.gudfood.com.ua/order"],
-      "js": ["content.js"]
+      "js": ["src/content.js"]
     }
   ],
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["src/background.js"]
   },
   "browser_action": {
-    "default_title": "Randomize Menu"
-  }
+    "default_title": "Randomize Menu",
+    "default_popup": "src/popup/popup.html"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "web_accessible_resources": [
+    "src/js/main.js",
+    "src/js/makeAnOrder.js"
+ ]
 }
